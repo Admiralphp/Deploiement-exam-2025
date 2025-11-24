@@ -13,7 +13,7 @@ pipeline {
         SLACK_CREDENTIALS = 'slack-token'
         
         // Variables Git
-        GIT_REPO = 'https://github.com/Admiralphp/Deploiement-exam-2025.git'
+        GIT_REPO = 'https://github.com/Admiralphp/cv.git'
     }
     
     options {

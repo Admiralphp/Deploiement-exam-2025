@@ -373,23 +373,28 @@ Installer les plugins suivants :
 
 2. **Configuration**
    - Description: `Pipeline CI/CD pour CV One Page`
-   - ☑ GitHub project: `https://github.com/Admiralphp/Deploiement-exam-2025`
+   - ☑ GitHub project: `https://github.com/Admiralphp/cv`
    - ☑ Poll SCM: `H/5 * * * *` (toutes les 5 minutes)
 
 3. **Pipeline Definition**
    - Definition: `Pipeline script from SCM`
    - SCM: `Git`
-   - Repository URL: `https://github.com/votre-username/cv-onepage.git`
+   - Repository URL: `https://github.com/Admiralphp/cv.git`
    - Branch: `*/main`
    - Script Path: `Jenkinsfile`
 
+   **Important:** Le dépôt https://github.com/Admiralphp/cv doit contenir :
+   - `index.html` et `style.css` (votre CV)
+   - `Dockerfile`, `nginx.conf`, `.dockerignore`
+   - `Jenkinsfile`
+
 4. **Personnaliser le Jenkinsfile**
    
-   Éditer `Jenkinsfile` et remplacer :
+   Le `Jenkinsfile` est déjà configuré avec :
    ```groovy
    DOCKERHUB_USERNAME = 'mohamedessid'
-   GIT_REPO = 'https://github.com/Admiralphp/Deploiement-exam-2025.git'
-   SLACK_CHANNEL = '#devops'
+   GIT_REPO = 'https://github.com/Admiralphp/cv.git'
+   SLACK_CHANNEL = '#devops-notifications'
    ```
 
 ### 4. Test du pipeline
