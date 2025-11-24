@@ -321,7 +321,7 @@ curl http://localhost:8080
 #### Accès à Jenkins
 
 ```
-URL: http://<IP_VM>:8080
+URL: http://10.174.154.25:8080
 ```
 
 #### Récupérer le mot de passe initial
@@ -349,7 +349,7 @@ Installer les plugins suivants :
 2. Cliquer sur `(global)` → `Add Credentials`
 3. Type: `Username with password`
    - ID: `dockerhub-credentials`
-   - Username: `votre-username-dockerhub`
+   - Username: `mohamedessid`
    - Password: `votre-token-dockerhub`
 
 #### Slack (optionnel)
