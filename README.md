@@ -984,48 +984,48 @@ Tous les screenshots sont disponibles dans le dossier `screenshots/` du dépôt 
 
 ### Partie I : Préparation de l'Environnement
 
-1. **1-vm_devopslab.png** - Configuration de la VM VirtualBox
-2. **2-installation ssh.png** - Installation du serveur SSH
-3. **2-2-installation ssh - vérification.png** - Vérification de l'installation SSH
-4. **2-3- accés ssh to vm from powershell.png** - Accès SSH depuis PowerShell
-5. **2-4- configuration des clés ssh.png** - Configuration des clés SSH
-6. **2-5- connexion avec clés ssh from windows machine.png** - Connexion avec clés SSH
+1. [**1-vm_devopslab.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/1-vm_devopslab.png) - Configuration de la VM VirtualBox
+2. [**2-installation ssh.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/2-installation%20ssh.png) - Installation du serveur SSH
+3. [**2-2-installation ssh - vérification.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/2-2-installation%20ssh%20-%20v%C3%A9rification.png) - Vérification de l'installation SSH
+4. [**2-3- accés ssh to vm from powershell.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/2-3-%20acc%C3%A9s%20ssh%20to%20vm%20from%20powershell.png) - Accès SSH depuis PowerShell
+5. [**2-4- configuration des clés ssh.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/2-4-%20configuration%20des%20cl%C3%A9s%20ssh.png) - Configuration des clés SSH
+6. [**2-5- connexion avec clés ssh from windows machine.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/2-5-%20connexion%20avec%20cl%C3%A9s%20ssh%20from%20windows%20machine.png) - Connexion avec clés SSH
 
 ### Partie II : Automatisation avec Ansible
 
-7. **II-0-installation ansible.png** - Installation d'Ansible
-8. **II-0-1-test de connexion ansible ssh.png** - Test de connexion Ansible
-9. **II-1-Mettre à jour et upgrader le système.png** - Mise à jour du système
-10. **II-2- Installer Docker en utilisant un rôle Ansible dédié.png** - Installation Docker (1/2)
-11. **II-2-1- Installer Docker en utilisant un rôle Ansible dédié.png** - Installation Docker (2/2)
-12. **II-3- Installer Terraform en utilisant un rôle Ansible dédié.png** - Installation Terraform
-13. **II-4-Installer Jenkins en utilisant un rôle Ansible dédié.png** - Installation Jenkins (1/2)
-14. **II-4-1- Installer Jenkins en utilisant un rôle Ansible dédié.png** - Installation Jenkins (2/2)
-15. **Partie II - Automatisation avec Ansible -succes suite à l'instalation.png** - Succès installation Ansible
+7. [**II-0-installation ansible.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/II-0-installation%20ansible.png) - Installation d'Ansible
+8. [**II-0-1-test de connexion ansible ssh.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/II-0-1-test%20de%20connexion%20ansible%20ssh.png) - Test de connexion Ansible
+9. [**II-1-Mettre à jour et upgrader le système.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/II-1-Mettre%20%C3%A0%20jour%20et%20upgrader%20le%20syst%C3%A8me.png) - Mise à jour du système
+10. [**II-2- Installer Docker en utilisant un rôle Ansible dédié.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/II-2-%20Installer%20Docker%20en%20utilisant%20un%20r%C3%B4le%20Ansible%20d%C3%A9di%C3%A9.png) - Installation Docker (1/2)
+11. [**II-2-1- Installer Docker en utilisant un rôle Ansible dédié.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/II-2-1-%20Installer%20Docker%20en%20utilisant%20un%20r%C3%B4le%20Ansible%20d%C3%A9di%C3%A9.png) - Installation Docker (2/2)
+12. [**II-3- Installer Terraform en utilisant un rôle Ansible dédié.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/II-3-%20Installer%20Terraform%20en%20utilisant%20un%20r%C3%B4le%20Ansible%20d%C3%A9di%C3%A9.png) - Installation Terraform
+13. [**II-4-Installer Jenkins en utilisant un rôle Ansible dédié.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/II-4-Installer%20Jenkins%20en%20utilisant%20un%20r%C3%B4le%20Ansible%20d%C3%A9di%C3%A9.png) - Installation Jenkins (1/2)
+14. [**II-4-1- Installer Jenkins en utilisant un rôle Ansible dédié.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/II-4-1-%20Installer%20Jenkins%20en%20utilisant%20un%20r%C3%B4le%20Ansible%20d%C3%A9di%C3%A9.png) - Installation Jenkins (2/2)
+15. [**Partie II - Automatisation avec Ansible -succes suite à l'instalation.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20II%20-%20Automatisation%20avec%20Ansible%20-succes%20suite%20%C3%A0%20l%27instalation.png) - Succès installation Ansible
 
 ### Partie III : Pipeline CI/CD avec Jenkins
 
-16. **Partie III -Configuration -jenkins.png** - Configuration initiale Jenkins
-17. **Partie III -2-Configuration -jenkins.png** - Configuration Jenkins (suite)
-18. **Partie III -3-Configuration -jenkins- plugins.png** - Installation des plugins (1/2)
-19. **Partie III -4-Configuration -jenkins- plugins.png** - Installation des plugins (2/2)
-20. **Partie III -Pipline-configurér et success .png** - Pipeline configuré et exécuté avec succès
+16. [**Partie III -Configuration -jenkins.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20III%20-Configuration%20-jenkins.png) - Configuration initiale Jenkins
+17. [**Partie III -2-Configuration -jenkins.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20III%20-2-Configuration%20-jenkins.png) - Configuration Jenkins (suite)
+18. [**Partie III -3-Configuration -jenkins- plugins.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20III%20-3-Configuration%20-jenkins-%20plugins.png) - Installation des plugins (1/2)
+19. [**Partie III -4-Configuration -jenkins- plugins.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20III%20-4-Configuration%20-jenkins-%20plugins.png) - Installation des plugins (2/2)
+20. [**Partie III -Pipline-configurér et success .png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20III%20-Pipline-configur%C3%A9r%20et%20success%20.png) - Pipeline configuré et exécuté avec succès
 
 ### Partie IV : Déploiement avec Terraform
 
-21. **Partie IV - Déploiement avec Terraform -terraform init.png** - Initialisation Terraform
-22. **Partie IV - Déploiement avec Terraform -terraform plan.png** - Plan Terraform
-23. **Partie IV - Déploiement avec Terraform -terraform apply.png** - Application Terraform
-24. **terraform output.png** - Outputs Terraform
-25. **Partie IV - Déploiement avec Terraform -terraform vérifer.png** - Vérification du déploiement
-26. **Partie IV - Déploiement avec Terraform -localhost_8585.png** - Accès local au CV
-27. **Partie IV - Déploiement avec Terraform -Accès depuis la machine hôte.png** - Accès distant au CV
+21. [**Partie IV - Déploiement avec Terraform -terraform init.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20IV%20-%20D%C3%A9ploiement%20avec%20Terraform%20-terraform%20init.png) - Initialisation Terraform
+22. [**Partie IV - Déploiement avec Terraform -terraform plan.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20IV%20-%20D%C3%A9ploiement%20avec%20Terraform%20-terraform%20plan.png) - Plan Terraform
+23. [**Partie IV - Déploiement avec Terraform -terraform apply.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20IV%20-%20D%C3%A9ploiement%20avec%20Terraform%20-terraform%20apply.png) - Application Terraform
+24. [**terraform output.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/terraform%20output.png) - Outputs Terraform
+25. [**Partie IV - Déploiement avec Terraform -terraform vérifer.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20IV%20-%20D%C3%A9ploiement%20avec%20Terraform%20-terraform%20v%C3%A9rifer.png) - Vérification du déploiement
+26. [**Partie IV - Déploiement avec Terraform -localhost_8585.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20IV%20-%20D%C3%A9ploiement%20avec%20Terraform%20-localhost_8585.png) - Accès local au CV
+27. [**Partie IV - Déploiement avec Terraform -Accès depuis la machine hôte.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20IV%20-%20D%C3%A9ploiement%20avec%20Terraform%20-Acc%C3%A8s%20depuis%20la%20machine%20h%C3%B4te.png) - Accès distant au CV
 
 ### Partie V : Orchestration Kubernetes avec K3s et Argo CD
 
-28. **Partie V 1. Installer K3s Single Node sur DEVOPS-LAB.png** - Installation K3s
-29. **Partie V 1. Installer argo cd .png** - Installation Argo CD
-30. **Partie V - Argo CD - installé.png** - Argo CD opérationnel
+28. [**Partie V 1. Installer K3s Single Node sur DEVOPS-LAB.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20V%201.%20Installer%20K3s%20Single%20Node%20sur%20DEVOPS-LAB.png) - Installation K3s
+29. [**Partie V 1. Installer argo cd .png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20V%201.%20Installer%20argo%20cd%20.png) - Installation Argo CD
+30. [**Partie V - Argo CD - installé.png**](https://github.com/Admiralphp/Deploiement-exam-2025/blob/main/screenshots/Partie%20V%20-%20Argo%20CD%20-%20install%C3%A9.png) - Argo CD opérationnel
 
 ### Récapitulatif des Screenshots
 
