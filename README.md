@@ -335,12 +335,13 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 Installer les plugins suivants :
 - Git
-- Docker Pipeline
+- Docker Pipeline (installe automatiquement Docker Commons)
 - Docker
-- Docker Commons
 - GitHub Integration
 - Slack Notification
 - Pipeline Stage View
+
+**Note :** Docker Commons s'installe automatiquement comme dépendance de Docker Pipeline.
 
 ### 2. Configuration des credentials
 
