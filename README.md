@@ -1067,7 +1067,7 @@ Tous les screenshots sont disponibles dans le dossier `screenshots/` du dépôt 
 
 Projet réalisé dans le cadre de l'examen pratique DevOps.
 
-**Étudiant:** [Votre Nom]  
+**Étudiant:** Mohamed ESSID  
 **Enseignant:** Wahid Hamdi  
 **Date:** Novembre 2025
 
