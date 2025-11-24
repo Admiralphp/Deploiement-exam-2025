@@ -20,7 +20,7 @@ output "access_url" {
   value       = "http://localhost:${var.external_port}"
 }
 
-output "container_status" {
-  description = "Statut du conteneur"
-  value       = docker_container.cv_container.status
+output "container_ports" {
+  description = "Ports du conteneur"
+  value       = docker_container.cv_container.ports
 }
