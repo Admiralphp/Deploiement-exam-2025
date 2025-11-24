@@ -1,0 +1,4 @@
+---
+# Variables par défaut pour Terraform
+terraform_version: "1.6.6"
+terraform_install_dir: "/usr/local/bin"

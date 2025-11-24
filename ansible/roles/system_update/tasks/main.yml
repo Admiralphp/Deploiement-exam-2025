@@ -1,0 +1,48 @@
+---
+# Tasks pour mettre à jour le système Ubuntu
+- name: Mettre à jour le cache APT
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  register: apt_update
+
+- name: Upgrade tous les paquets système
+  apt:
+    upgrade: dist
+    autoremove: yes
+    autoclean: yes
+  register: apt_upgrade
+
+- name: Installer les paquets essentiels
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg
+      - lsb-release
+      - software-properties-common
+      - python3-pip
+      - git
+      - wget
+      - vim
+      - htop
+      - net-tools
+      - unzip
+    state: present
+
+- name: Vérifier si un redémarrage est nécessaire
+  stat:
+    path: /var/run/reboot-required
+  register: reboot_required_file
+
+- name: Définir la variable de redémarrage
+  set_fact:
+    reboot_required: "{{ reboot_required_file.stat.exists }}"
+
+- name: Afficher le statut de mise à jour
+  debug:
+    msg:
+      - "Mise à jour APT: {{ 'Effectuée' if apt_update.changed else 'Déjà à jour' }}"
+      - "Upgrade système: {{ 'Effectué' if apt_upgrade.changed else 'Déjà à jour' }}"
+      - "Redémarrage nécessaire: {{ 'Oui' if reboot_required else 'Non' }}"

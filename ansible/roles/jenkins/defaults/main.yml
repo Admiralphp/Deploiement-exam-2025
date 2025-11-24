@@ -1,0 +1,6 @@
+---
+# Variables par défaut pour Jenkins
+jenkins_port: 8080
+jenkins_home: /var/lib/jenkins
+jenkins_admin_user: admin
+jenkins_admin_password: Admin@123

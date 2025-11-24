@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cv-onepage-app
+  namespace: argocd
+spec:
+  project: default
+  
+  # Source du dépôt Git
+  source:
+    repoURL: https://github.com/Admiralphp/Deploiement-exam-2025.git
+    targetRevision: main
+    path: kubernetes
+  
+  # Destination (cluster K3s)
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  
+  # Politique de synchronisation
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+    - CreateNamespace=true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m

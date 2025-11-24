@@ -1,0 +1,56 @@
+# Terraform state files
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Ansible
+*.retry
+.ansible/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# SSH Keys
+*.pem
+*.key
+id_rsa*
+
+# Credentials
+*credentials*
+*password*
+*secret*
+
+# Build artifacts
+dist/
+build/
+node_modules/
+
+# Docker
+docker-compose.override.yml
+
+# Kubernetes
+kubeconfig
+
+# Grafana
+grafana-agent.yaml
+
+# Temporary files
+tmp/
+temp/
+*.tmp

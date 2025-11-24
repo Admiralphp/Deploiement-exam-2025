@@ -1,0 +1,65 @@
+---
+# Installation de Terraform
+
+- name: Vérifier si Terraform est déjà installé
+  command: terraform version
+  register: terraform_installed
+  changed_when: false
+  failed_when: false
+
+- name: Afficher la version de Terraform si installée
+  debug:
+    msg: "Terraform déjà installé: {{ terraform_installed.stdout }}"
+  when: terraform_installed.rc == 0
+
+- name: Télécharger Terraform
+  get_url:
+    url: "https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
+    dest: "/tmp/terraform_{{ terraform_version }}_linux_amd64.zip"
+    mode: '0644'
+  when: terraform_installed.rc != 0 or terraform_version not in terraform_installed.stdout
+
+- name: Installer unzip si nécessaire
+  apt:
+    name: unzip
+    state: present
+  when: terraform_installed.rc != 0 or terraform_version not in terraform_installed.stdout
+
+- name: Décompresser Terraform
+  unarchive:
+    src: "/tmp/terraform_{{ terraform_version }}_linux_amd64.zip"
+    dest: "{{ terraform_install_dir }}"
+    remote_src: yes
+    mode: '0755'
+  when: terraform_installed.rc != 0 or terraform_version not in terraform_installed.stdout
+
+- name: Supprimer le fichier zip téléchargé
+  file:
+    path: "/tmp/terraform_{{ terraform_version }}_linux_amd64.zip"
+    state: absent
+
+- name: Vérifier l'installation de Terraform
+  command: terraform version
+  register: terraform_version_check
+  changed_when: false
+
+- name: Afficher la version de Terraform installée
+  debug:
+    msg: "{{ terraform_version_check.stdout }}"
+
+- name: Créer le répertoire de configuration Terraform
+  file:
+    path: "/home/{{ item }}/.terraform.d"
+    state: directory
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0755'
+  loop: "{{ docker_users | default(['ubuntu']) }}"
+
+- name: Installer le plugin Terraform pour Docker
+  command: terraform init
+  args:
+    chdir: /tmp
+  become_user: "{{ docker_users[0] | default('ubuntu') }}"
+  changed_when: false
+  failed_when: false

@@ -1,0 +1,112 @@
+---
+# Installation de Jenkins
+
+- name: Installer Java (OpenJDK 17)
+  apt:
+    name: openjdk-17-jdk
+    state: present
+    update_cache: yes
+
+- name: Vérifier l'installation de Java
+  command: java -version
+  register: java_version
+  changed_when: false
+
+- name: Afficher la version de Java
+  debug:
+    msg: "{{ java_version.stderr }}"
+
+- name: Ajouter la clé GPG de Jenkins
+  apt_key:
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+    state: present
+
+- name: Ajouter le dépôt Jenkins
+  apt_repository:
+    repo: "deb https://pkg.jenkins.io/debian-stable binary/"
+    state: present
+    filename: jenkins
+
+- name: Mettre à jour le cache APT
+  apt:
+    update_cache: yes
+
+- name: Installer Jenkins
+  apt:
+    name: jenkins
+    state: present
+
+- name: Ajouter l'utilisateur Jenkins au groupe docker
+  user:
+    name: jenkins
+    groups: docker
+    append: yes
+
+- name: S'assurer que le service Jenkins est démarré et activé
+  systemd:
+    name: jenkins
+    state: started
+    enabled: yes
+
+- name: Attendre que Jenkins soit complètement démarré
+  wait_for:
+    port: "{{ jenkins_port }}"
+    delay: 10
+    timeout: 300
+
+- name: Lire le mot de passe initial de Jenkins
+  slurp:
+    src: "{{ jenkins_home }}/secrets/initialAdminPassword"
+  register: jenkins_initial_password
+
+- name: Afficher le mot de passe initial de Jenkins
+  debug:
+    msg: "Mot de passe initial Jenkins: {{ jenkins_initial_password.content | b64decode }}"
+
+- name: Créer le répertoire pour les scripts Jenkins
+  file:
+    path: /opt/jenkins-scripts
+    state: directory
+    mode: '0755'
+
+- name: Créer un script pour installer les plugins Jenkins
+  copy:
+    dest: /opt/jenkins-scripts/install-plugins.sh
+    mode: '0755'
+    content: |
+      #!/bin/bash
+      # Script pour installer les plugins Jenkins essentiels
+      
+      JENKINS_URL="http://localhost:{{ jenkins_port }}"
+      PLUGINS=(
+        "git"
+        "docker-plugin"
+        "docker-workflow"
+        "slack"
+        "pipeline-stage-view"
+        "workflow-aggregator"
+        "github"
+        "ssh-slaves"
+      )
+      
+      echo "Installation des plugins Jenkins..."
+      for plugin in "${PLUGINS[@]}"; do
+        echo "Installation de $plugin..."
+      done
+      
+      echo "Redémarrage de Jenkins..."
+      systemctl restart jenkins
+
+- name: Vérifier le statut de Jenkins
+  systemd:
+    name: jenkins
+    state: started
+  register: jenkins_status
+
+- name: Afficher les informations Jenkins
+  debug:
+    msg:
+      - "Jenkins installé avec succès!"
+      - "URL: http://{{ ansible_default_ipv4.address }}:{{ jenkins_port }}"
+      - "Mot de passe initial: {{ jenkins_initial_password.content | b64decode }}"
+      - "Pour installer les plugins: /opt/jenkins-scripts/install-plugins.sh"

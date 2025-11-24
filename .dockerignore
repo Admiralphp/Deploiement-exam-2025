@@ -1,0 +1,11 @@
+# Ignorer les fichiers et dossiers suivants lors du build Docker
+.git
+.gitignore
+README.md
+ansible/
+terraform/
+kubernetes/
+scripts/
+.github/
+*.md
+.env

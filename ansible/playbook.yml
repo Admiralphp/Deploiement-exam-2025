@@ -1,0 +1,63 @@
+---
+# Playbook principal pour configurer la VM DEVOPS-LAB
+# Usage: ansible-playbook -i inventory.ini playbook.yml
+
+- name: Configuration complète de DEVOPS-LAB
+  hosts: devops_lab
+  become: yes
+  gather_facts: yes
+
+  vars:
+    docker_users:
+      - "{{ ansible_user }}"
+    terraform_version: "1.6.6"
+    jenkins_admin_user: "admin"
+    jenkins_admin_password: "Admin@123"
+
+  pre_tasks:
+    - name: Afficher les informations de la VM
+      debug:
+        msg: "Configuration de {{ ansible_hostname }} ({{ ansible_distribution }} {{ ansible_distribution_version }})"
+
+    - name: Vérifier la connexion SSH
+      ping:
+
+  roles:
+    - role: system_update
+      tags: ['update', 'system']
+
+    - role: docker
+      tags: ['docker', 'container']
+
+    - role: terraform
+      tags: ['terraform', 'iac']
+
+    - role: jenkins
+      tags: ['jenkins', 'ci']
+
+  post_tasks:
+    - name: Afficher le résumé de l'installation
+      debug:
+        msg:
+          - "=========================================="
+          - "Configuration de DEVOPS-LAB terminée !"
+          - "=========================================="
+          - "Docker version: {{ docker_version.stdout | default('Non installé') }}"
+          - "Terraform version: {{ terraform_version }}"
+          - "Jenkins URL: http://{{ ansible_default_ipv4.address }}:8080"
+          - "=========================================="
+
+    - name: Vérifier l'état des services
+      service:
+        name: "{{ item }}"
+        state: started
+        enabled: yes
+      loop:
+        - docker
+        - jenkins
+      register: services_status
+
+    - name: Redémarrer la VM si nécessaire
+      reboot:
+        reboot_timeout: 300
+      when: reboot_required is defined and reboot_required

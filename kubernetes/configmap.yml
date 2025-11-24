@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cv-onepage-config
+  namespace: default
+  labels:
+    app: cv-onepage
+data:
+  # Configuration Nginx personnalisée (si nécessaire)
+  nginx.conf: |
+    server {
+        listen 80;
+        server_name localhost;
+        root /usr/share/nginx/html;
+        index index.html;
+        
+        location / {
+            try_files $uri $uri/ /index.html;
+        }
+        
+        error_page 404 /index.html;
+    }
