@@ -9,6 +9,11 @@ terraform {
   }
 }
 
+# Configuration du timeout pour les téléchargements
+provider "docker" {
+  host = "unix:///var/run/docker.sock"
+}
+
 # Configuration du provider Docker
 provider "docker" {
   host = "unix:///var/run/docker.sock"
