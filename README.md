@@ -247,8 +247,10 @@ sudo apt update && sudo apt install -y ansible
 
 1. **Cloner le dépôt**
    ```bash
-   git clone https://github.com/Admiralphp/Deploiement-exam-2025.git
-   cd Deploiement-exam-2025/ansible
+   mkdir -p ~/devops-exam
+   cd ~/devops-exam
+   git clone https://github.com/Admiralphp/Deploiement-exam-2025.git .
+   cd ansible
    ```
 
 2. **Éditer l'inventaire**
@@ -414,9 +416,7 @@ git push origin main
 
 ```bash
 ssh devops-lab
-cd ~
-git clone https://github.com/Admiralphp/Deploiement-exam-2025.git
-cd Deploiement-exam-2025/terraform
+cd ~/devops-exam/terraform
 ```
 
 ### 2. Configuration
@@ -486,7 +486,7 @@ terraform destroy
 
 ```bash
 ssh devops-lab
-cd ~/Deploiement-exam-2025/scripts
+cd ~/devops-exam/scripts
 
 # Rendre le script exécutable
 chmod +x install-k3s.sh
@@ -511,7 +511,7 @@ kubectl cluster-info
 ### 3. Installation d'Argo CD
 
 ```bash
-cd ~/Deploiement-exam-2025/scripts
+cd ~/devops-exam/scripts
 
 # Rendre le script exécutable
 chmod +x install-argocd.sh
@@ -557,7 +557,7 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 #### Méthode 2: Via kubectl
 
 ```bash
-cd ~/Deploiement-exam-2025/kubernetes
+cd ~/devops-exam/kubernetes
 
 # Éditer argocd-application.yml avec votre repo
 nano argocd-application.yml
@@ -602,7 +602,7 @@ kubectl port-forward svc/cv-onepage-service 8080:80
 
 ```bash
 # Modifier le nombre de replicas
-cd ~/Deploiement-exam-2025/kubernetes
+cd ~/devops-exam/kubernetes
 nano deployment.yml
 
 # Changer replicas: 2 en replicas: 3
@@ -641,7 +641,7 @@ kubectl get pods -l app=cv-onepage
 
 ```bash
 ssh devops-lab
-cd ~/Deploiement-exam-2025/scripts
+cd ~/devops-exam/scripts
 
 # Éditer le script avec vos credentials
 nano install-grafana-agent.sh
